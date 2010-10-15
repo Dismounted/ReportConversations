@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="ReportConversations" title="Report Conversations" version_string="1.0.0" version_id="1" url="" install_callback_class="ReportConversations_Install" install_callback_method="install" uninstall_callback_class="ReportConversations_Uninstall" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="ReportConversations_Listener_LoadClassController" callback_method="init" active="1" description="Extends XenForo controllers with ReportConversations-specific methods."/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="message_in_conversation_x" global_cache="0" version_id="1" version_string="1.0.0"><![CDATA[Message in conversation '{title}']]></phrase>
+    <phrase title="receiving_members" global_cache="0" version_id="1" version_string="1.0.0"><![CDATA[Receiving Members]]></phrase>
+    <phrase title="report_conversation_message" global_cache="0" version_id="1" version_string="1.0.0"><![CDATA[Report Conversation Message]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="conversation_message_report" version_id="1" version_string="1.0.0"><![CDATA[<xen:title>{$conversation.title} - {xen:phrase report_conversation_message}</xen:title>
+<xen:h1>{xen:phrase report_conversation_message}</xen:h1>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:conversations}">{xen:phrase conversations}</xen:breadcrumb>
+	<xen:breadcrumb href="{xen:link full:conversations, $conversation}">{$conversation.title}</xen:breadcrumb>
+</xen:navigation>
+
+<form action="{xen:link 'conversations/report', $conversation, 'm={$message.message_id}'}" method="post" class="xenForm formOverlay AutoValidator">
+
+	<dl class="ctrlUnit">
+		<dt><label for="ctrl_message">{xen:phrase report_reason}:</label></dt>
+		<dd><textarea name="message" id="ctrl_message" rows="2" class="textCtrl Elastic"></textarea></dd>
+	</dl>
+
+	<dl class="ctrlUnit submitUnit">
+		<dt></dt>
+		<dd><input type="submit" value="{xen:phrase report_conversation_message}" accesskey="s" class="button primary" /></dd>
+	</dl>
+
+	<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+</form>]]></template>
+    <template title="report_conversation_message_content" version_id="1" version_string="1.0.0"><![CDATA[<div class="primaryContent">{xen:helper bodyText, $content.message}</div>
+<dl class="secondaryContent pairsInline">
+	<dt>{xen:phrase receiving_members}:</dt>
+	<dd>
+		<xen:foreach loop="{$content.message_recipients}" key="$user_id" value="$username">
+			<a href="{xen:link members, {xen:array 'user_id={$user_id}', 'username={$username}'}}">{$username}</a>
+		</xen:foreach>
+	</dd>
+</dl>]]></template>
+  </templates>
+</addon>
