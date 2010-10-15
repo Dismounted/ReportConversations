@@ -32,7 +32,7 @@ Add Below:
 Caveats
 ----
 
-This add-on has a high probability of being superseded by being introduced into XenForo itself. See [Report Private Conversation](http://xenforo.com/community/threads/suggestion-report-private-conversation.3912/).
+This add-on has a high probability of being superseded by being introduced into XenForo itself. See the [Report Private Conversation](http://xenforo.com/community/threads/suggestion-report-private-conversation.3912/) thread.
 
 Additionally, no additional permission checks are performed when fetching reports. Any user that can access the *Reported Items* panel will be able to see reported conversations.
 
@@ -41,7 +41,7 @@ Upgrading
 
 1. Upload all the Report Conversations files, overwriting any old ones.
 2. Next, go to your Admin Control Panel homepage, and click *List Add-ons* or *Manage Add-ons*.
-3. Activate the *Controls* drop-down for XenMoods, and click *Upgrade*.
+3. Activate the *Controls* drop-down for Report Conversations, and click *Upgrade*.
 4. Select *addon_ReportConversations.xml* as the file to upload.
 5. Click *Upgrade Add-on* to confirm.
 6. Check your template edits to ensure they are up-to-date.
