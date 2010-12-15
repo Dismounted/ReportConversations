@@ -80,7 +80,7 @@ class ReportConversations_Install
 		// create our install object
 		$install = self::getInstance();
 
-		for ($i = $startVersionId; $i <= $endVersionId; $i++)
+		for ($i = $startVersionId; $i <= $endVersionId; ++$i)
 		{
 			$method = '_installVersion' . $i;
 			if (method_exists($install, $method) === false)
