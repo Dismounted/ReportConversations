@@ -16,7 +16,7 @@ Installation
 Template Edits
 ----
 
-The following template edits must be made to enable XenMoods to work correctly.
+The following template edits must be made to enable Report Conversations to work correctly.
 
 - Template: conversation_message
 
